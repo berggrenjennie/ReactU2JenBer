@@ -23,7 +23,7 @@ function UserListComponent(props){
 // Varnar om datatypen inte stämmer överens
 UserListComponent.propTypes = {
  user: PropTypes.shape({
-     id:PropTypes.string,
+     id:PropTypes.number,
      name:PropTypes.string,
      isActive:PropTypes.bool
  }),

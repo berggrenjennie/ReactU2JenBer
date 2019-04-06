@@ -1,14 +1,4 @@
-/* DashBoardComponent is a class component which has three states in the constructor:
-1- userList which is an array
-2- a value that respects the value of the input field in the form.
-3-color which we use to change the colour of the text in the user list.
-the component has also four methods.
-1-handleChange: To control and change the value of the input field in the form by using setState.
-2-addUserName: To add the value of the input field as an item into the userList array.
-3-removUserName: To remove an item from the userList array.
-4-toggleColor: To change the color of the text of user by change the state of the color
-from true till false or vice versa by using setState.
-*/
+
 import React, { Component, Fragment } from 'react';
 import UserListComponent from '../components/UserListComponent';
 import CardComponent from '../components/CardComponent';
