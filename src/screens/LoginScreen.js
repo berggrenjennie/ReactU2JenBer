@@ -18,7 +18,6 @@ class LoginScreen extends Component {
 
 // Varnar om datatypen inte stämmer överens
   static propTypes = {
-   value: PropTypes.string,
    info: PropTypes.string,
  }
 

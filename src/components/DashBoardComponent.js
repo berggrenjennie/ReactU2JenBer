@@ -21,8 +21,16 @@ constructor(props) {
         {id:4, name: 'John', isActive: true},
         {id:5, name: 'Stina', isActive: false}
         ],
+      newuserList:[
+          {id:1, name: 'Mimmi', isActive: true},
+          {id:2, name: 'Kalle', isActive: false},
+          {id:3, name: 'Klara', isActive: true},
+          {id:4, name: 'John', isActive: true},
+          {id:5, name: 'Stina', isActive: false}
+          ],
       value:"",
-      color:true
+      color:true,
+      isActiveBtn:true
     };
 this.handleChange = this.handleChange.bind(this);
 this.addUserName = this.addUserName.bind(this);
@@ -30,7 +38,7 @@ this.addUserName = this.addUserName.bind(this);
 
 // Varnar om datatypen inte stämmer överens
 static propTypes = {
-  userList: PropTypes.shape({
+  user: PropTypes.shape({
     id:PropTypes.number,
     name:PropTypes.string,
     isActive:PropTypes.bool
@@ -47,8 +55,9 @@ this.setState({value: event.target.value});
 // Eventfunktion som lägger ihop den befintliga UserList med den nya användaren som
 // skrivs in i inputfältet och sparas i value-statet
 addUserName(event) {
-const newUsers = this.state.userList.concat([this.state.value]);
+const newUsers = this.state.userList.concat([{id:this.state.userList.length + 1, name:this.state.value, isActive: true}]);
 this.setState({userList: newUsers});
+this.setState({newuserList: newUsers});
 event.preventDefault();
 }
 
@@ -66,6 +75,32 @@ this.setState({userList: removeUsers});
      })
    }
 
+   showActiveUsers = (e) => {
+
+      this.setState({
+        isActiveBtn: !this.state.isActiveBtn,
+      })
+      if(this.state.isActiveBtn){
+        const activeUsers = this.state.userList.filter(function(user){
+          if(user.isActive){
+            return user;
+          }
+          return null;
+        })
+          this.setState({newuserList: activeUsers});
+      }
+
+      if(!this.state.isActiveBtn){
+        const notactiveUsers = this.state.userList.filter(function(user){
+          if(!user.isActive){
+            return user;
+          }
+          return null;
+        })
+         this.setState({newuserList: notactiveUsers});
+      }
+  }
+
    render() {
     return (
       <Fragment>
@@ -73,10 +108,10 @@ this.setState({userList: removeUsers});
           <Row>
             <Col  lg="6">
               <div >
-                <CardComponent showInfo={false}>
-                  <Button id="btn" variant="warning">Show Inactive</Button>
+                <CardComponent>
+                  <Button id="btn" style={{background:this.state.isActiveBtn ? "black" : "blue"}} onClick={()=> this.showActiveUsers(this.state.isActiveBtn)}>Show Inactive</Button>
                   <ListGroup>
-                    {this.state.userList.map((user) =>
+                    {this.state.newuserList.map((user) =>
                       <UserListComponent key={user.id} color={this.state.color} user={user}/>
                     )}
                   </ListGroup>

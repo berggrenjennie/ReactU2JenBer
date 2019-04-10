@@ -9,7 +9,7 @@ class UserScreen extends Component {
       return (
         <CardComponent>
         {user ? <div>{"Selected user:  " + user}</div> : <Redirect from="/user" to="/"/>}
-
+        {/*user ? <div>{"Selected user : " + user}</div> :  <div>No user selected</div>*/ }
         </CardComponent>
       );
   }

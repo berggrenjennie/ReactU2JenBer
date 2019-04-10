@@ -17,7 +17,7 @@ class CardComponent extends Component {
 
   // Varnar om datatypen inte stämmer överens
   static propTypes = {
-    showInfo: PropTypes.bool,
+    info: PropTypes.string,
 }
 
  // Funktion som ändrar värdet mellan true och false i togglingen mellan show och hide.
@@ -32,7 +32,7 @@ class CardComponent extends Component {
 
     return (
       <Card className="card">
-      
+
         <div>
           {this.props.children}
         </div>
