@@ -29,7 +29,6 @@ class CardComponent extends Component {
 
 
   render(){
-
     return (
       <Card className="card">
 

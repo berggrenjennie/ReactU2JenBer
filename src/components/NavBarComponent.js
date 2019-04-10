@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import { Link} from 'react-router-dom';
 
 class NavBarComponent extends Component {
-S
+  
     render() {
         return (
           <Nav className="sidebar">

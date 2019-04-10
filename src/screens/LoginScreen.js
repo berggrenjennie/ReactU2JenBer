@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Button,Form} from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
 import CardComponent from '../components/CardComponent';
 
@@ -16,10 +15,6 @@ class LoginScreen extends Component {
   this.Login = this.Login.bind(this);
   }
 
-// Varnar om datatypen inte stämmer överens
-  static propTypes = {
-   info: PropTypes.string,
- }
 
   // Eventfunktion som ändrar statet på value när man skriver i inputfältet
   handleChange(event) {

@@ -2,7 +2,6 @@
 import React, { Component, Fragment } from 'react';
 import UserListComponent from '../components/UserListComponent';
 import CardComponent from '../components/CardComponent';
-import PropTypes from 'prop-types';
 
 import {Container,Row,Col,Button,Form,ListGroup} from 'react-bootstrap';
 
@@ -34,17 +33,6 @@ constructor(props) {
     };
 this.handleChange = this.handleChange.bind(this);
 this.addUserName = this.addUserName.bind(this);
-}
-
-// Varnar om datatypen inte stämmer överens
-static propTypes = {
-  user: PropTypes.shape({
-    id:PropTypes.number,
-    name:PropTypes.string,
-    isActive:PropTypes.bool
-  }),
-  value: PropTypes.string,
-  color: PropTypes.bool
 }
 
 // Eventfunktion som ändrar statet på value när man skriver i inputfältet
